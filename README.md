@@ -46,10 +46,9 @@ to be hosted on any static content server.
 
 
 ## Usage
-Begin your journey with the Minecraft Items API v2 by making HTTP requests to the endpoint. Explore the API documentation for comprehensive details on available endpoints, request parameters, and response formats.
+https://minecraft-items-api-v2.vercel.app
 
-## API Documentation
-For in-depth guidance on API usage, refer to the documentation available at .
+Begin your journey with the Minecraft Items API v2 by making HTTP requests to the endpoint. Explore the API [documentation] for comprehensive details on available endpoints, request parameters, and response formats.
 
 # Contributing
 Check [CONTRIBUITNG.md](/CONTRIBUTING.md)
