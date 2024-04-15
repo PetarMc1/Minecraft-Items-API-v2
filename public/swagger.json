@@ -140,6 +140,51 @@
           }
         }
       }
+    },
+    "/api/blocks/id/{version}/{blockId}": {
+      "get": {
+        "tags": ["Blocks"],
+        "summary": "Get block information by version and ID",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "description": "Minecraft version",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "1.11",
+              "1.12",
+              "1.13",
+              "1.14",
+              "1.15",
+              "1.16",
+              "1.17",
+              "1.18",
+              "1.19",
+              "1.20"
+            ]
+          },
+          {
+            "name": "blockId",
+            "in": "path",
+            "description": "ID of the Minecraft block",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Block"
+            }
+          },
+          "404": {
+            "description": "Block not found"
+          }
+        }
+      }
     }
   },
   "definitions": {
