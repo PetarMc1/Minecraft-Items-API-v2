@@ -1,14 +1,14 @@
 {
-  "openapi": "3.1.0",
+  "swagger": "2.0",
   "info": {
+    "version": "1.0.0",
     "title": "Petar's Minecraft API v2",
-    "description": "API for retrieving Minecraft item and block information",
-    "version": "1.0.0"
+    "description": "API for retrieving Minecraft item and block information"
   },
   "paths": {
     "/api/items/name/{version}/{itemName}": {
       "get": {
-        "tags":["Items"],
+        "tags": ["Items"],
         "summary": "Get item information by version and name",
         "parameters": [
           {
@@ -16,42 +16,33 @@
             "in": "path",
             "description": "Minecraft version",
             "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "1.11",
-                "1.12",
-                "1.13",
-                "1.14",
-                "1.15",
-                "1.16",
-                "1.17",
-                "1.18",
-                "1.19",
-                "1.20"
-              ]
-            }
-            
+            "type": "string",
+            "enum": [
+              "1.11",
+              "1.12",
+              "1.13",
+              "1.14",
+              "1.15",
+              "1.16",
+              "1.17",
+              "1.18",
+              "1.19",
+              "1.20"
+            ]
           },
           {
             "name": "itemName",
             "in": "path",
             "description": "Name of the Minecraft item",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Item"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/Item"
             }
           },
           "404": {
@@ -62,7 +53,7 @@
     },
     "/api/items/id/{version}/{itemId}": {
       "get": {
-        "tags":["Items"],
+        "tags": ["Items"],
         "summary": "Get item information by version and ID",
         "parameters": [
           {
@@ -70,41 +61,33 @@
             "in": "path",
             "description": "Minecraft version",
             "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "1.11",
-                "1.12",
-                "1.13",
-                "1.14",
-                "1.15",
-                "1.16",
-                "1.17",
-                "1.18",
-                "1.19",
-                "1.20"
-              ]
-            }
+            "type": "string",
+            "enum": [
+              "1.11",
+              "1.12",
+              "1.13",
+              "1.14",
+              "1.15",
+              "1.16",
+              "1.17",
+              "1.18",
+              "1.19",
+              "1.20"
+            ]
           },
           {
             "name": "itemId",
             "in": "path",
             "description": "ID of the Minecraft item",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Item"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/Item"
             }
           },
           "404": {
@@ -113,9 +96,9 @@
         }
       }
     },
-    "/api/blocks/{version}/{blockName}": {
+    "/api/blocks/name/{version}/{blockName}": {
       "get": {
-        "tags":["Blocks"],
+        "tags": ["Blocks"],
         "summary": "Get block information by version and name",
         "parameters": [
           {
@@ -123,41 +106,33 @@
             "in": "path",
             "description": "Minecraft version",
             "required": true,
-            "schema": {
-              "type": "string",
-              "enum": [
-                "1.11",
-                "1.12",
-                "1.13",
-                "1.14",
-                "1.15",
-                "1.16",
-                "1.17",
-                "1.18",
-                "1.19",
-                "1.20"
-              ]
-            }
+            "type": "string",
+            "enum": [
+              "1.11",
+              "1.12",
+              "1.13",
+              "1.14",
+              "1.15",
+              "1.16",
+              "1.17",
+              "1.18",
+              "1.19",
+              "1.20"
+            ]
           },
           {
             "name": "blockName",
             "in": "path",
             "description": "Name of the Minecraft block",
             "required": true,
-            "schema": {
-              "type": "string"
-            }
+            "type": "string"
           }
         ],
         "responses": {
           "200": {
             "description": "Successful response",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Block"
-                }
-              }
+            "schema": {
+              "$ref": "#/definitions/Block"
             }
           },
           "404": {
@@ -167,28 +142,26 @@
       }
     }
   },
-  "components": {
-    "schemas": {
-      "Item": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "id": {
-            "type": "integer"
-          }
+  "definitions": {
+    "Item": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
         }
-      },
-      "Block": {
-        "type": "object",
-        "properties": {
-          "name": {
-            "type": "string"
-          },
-          "id": {
-            "type": "integer"
-          }
+      }
+    },
+    "Block": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "id": {
+          "type": "integer"
         }
       }
     }
