@@ -1,6 +1,7 @@
 # Minecraft Items and Blocks API v2
 [![Discord](https://img.shields.io/discord/1217057211575042058?logo=Discord&label=Discord&color=blue)](https://discord.gg/8Ab2uuqSYE)
-[![GitHub Issues ](https://img.shields.io/github/issues/PetarMc1/Minecraft-Items-API-v2)](https://github.com/PetarMc1/Minecraft-Items-API-v2/issues) 
+![GitHub Release](https://img.shields.io/github/v/release/PetarMc1/Minecraft-Items-API-v2?include_prereleases&logo=github&color=red)
+[![GitHub Issues](https://img.shields.io/github/issues/PetarMc1/Minecraft-Items-API-v2?logo=github)](https://github.com/PetarMc1/Minecraft-Items-API-v2/issues) 
 [![Pull Requests](https://img.shields.io/github/issues-pr/PetarMc1/Minecraft-Items-API-v2?logo=github)](https://github.com/PetarMc1/Minecraft-Items-API-v2/pulls)
 ![GitHub License](https://img.shields.io/github/license/PetarMc1/Minecraft-Items-API-v2%20?color=blue)
 
