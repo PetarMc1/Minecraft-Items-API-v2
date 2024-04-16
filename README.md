@@ -63,3 +63,5 @@ Check [CONTRIBUITNG.md](/CONTRIBUTING.md)
 
 # License
 This project is licensed under the [MIT](/LICENCE) License.
+
+Everything in the`Data` folder is copied from [PrismarineJS/minecraft-data](https://github.com/PrismarineJS/minecraft-data)
