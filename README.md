@@ -14,9 +14,6 @@
 
 Welcome to the Minecraft Items API v2! This API provides comprehensive access to information about items and blocks in Minecraft, from version 1.11 to the latest release.
 
-## Features
-- **Powered by Next.js and TypeScript:** Built with Next.js and TypeScript for enhanced performance, scalability, and type safety.
-- **Version 2:** This iteration marks a significant upgrade, delivering enhanced functionality and deployment capabilities.
 
 ## How to get API running on your local machine for development.
 
