@@ -6,7 +6,7 @@
     "description": "API for retrieving Minecraft item and block information"
   },
   "paths": {
-    "/api/items/name/{version}/{itemName}": {
+    "/v2/items/name/{version}/{itemName}": {
       "get": {
         "tags": ["Items"],
         "summary": "Get item information by version and name",
@@ -53,7 +53,7 @@
         }
       }
     },
-    "/api/items/id/{version}/{itemId}": {
+    "/v2/items/id/{version}/{itemId}": {
       "get": {
         "tags": ["Items"],
         "summary": "Get item information by version and ID",
@@ -84,7 +84,7 @@
             "in": "path",
             "description": "ID of the Minecraft item",
             "required": true,
-            "type": "string"
+            "type": "integer"
           }
         ],
         "responses": {
@@ -100,7 +100,7 @@
         }
       }
     },
-    "/api/blocks/name/{version}/{blockName}": {
+    "/v2/blocks/name/{version}/{blockName}": {
       "get": {
         "tags": ["Blocks"],
         "summary": "Get block information by version and name",
@@ -147,7 +147,7 @@
         }
       }
     },
-    "/api/blocks/id/{version}/{blockId}": {
+    "/v2/blocks/id/{version}/{blockId}": {
       "get": {
         "tags": ["Blocks"],
         "summary": "Get block information by version and ID",
@@ -178,7 +178,7 @@
             "in": "path",
             "description": "ID of the Minecraft block",
             "required": true,
-            "type": "string"
+            "type": "integer"
           }
         ],
         "responses": {
