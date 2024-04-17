@@ -5,7 +5,7 @@
     "description": "API for retrieving Minecraft item and block information\nGithub repo: https://github.com/PetarMc1/Minecraft-Items-API-v2"
   },
   "paths": {
-    "/v2/items/name/{version}/{itemName}": {
+    "/v2/name/items/{version}/{itemName}": {
       "get": {
         "tags": ["Items"],
         "summary": "Get item information by version and name",
@@ -52,7 +52,7 @@
         }
       }
     },
-    "/v2/items/id/{version}/{itemId}": {
+    "/v2/id/items/{version}/{itemId}": {
       "get": {
         "tags": ["Items"],
         "summary": "Get item information by version and ID",
@@ -99,7 +99,7 @@
         }
       }
     },
-    "/v2/blocks/name/{version}/{blockName}": {
+    "/v2/name/blocks/{version}/{blockName}": {
       "get": {
         "tags": ["Blocks"],
         "summary": "Get block information by version and name",
@@ -146,7 +146,7 @@
         }
       }
     },
-    "/v2/blocks/id/{version}/{blockId}": {
+    "/v2/id/blocks/{version}/{blockId}": {
       "get": {
         "tags": ["Blocks"],
         "summary": "Get block information by version and ID",
