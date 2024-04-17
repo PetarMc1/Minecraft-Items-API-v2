@@ -2,8 +2,8 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0.0",
-    "title": "Petar's Minecraft API v2",
-    "description": "API for retrieving Minecraft item and block information"
+    "title": "inecraft Items API v2",
+    "description": "API for retrieving Minecraft item and block information\nGithub repo: https://github.com/PetarMc1/Minecraft-Items-API-v2"
   },
   "paths": {
     "/v2/items/name/{version}/{itemName}": {
