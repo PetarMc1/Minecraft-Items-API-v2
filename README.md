@@ -6,12 +6,6 @@
 ![GitHub License](https://img.shields.io/github/license/PetarMc1/Minecraft-Items-API-v2%20?color=blue)
 
 
-![GitHub package.json prod dependency version (branch)](https://img.shields.io/github/package-json/dependency-version/PetarMc1/Minecraft-Items-API-v2/next/master?label=Next%20JS%20Version)
-![GitHub package.json prod dependency version (branch)](https://img.shields.io/github/package-json/dependency-version/PetarMc1/Minecraft-Items-API-v2/react/master?label=React%20Version&color=yellow)
-
-
-
-
 Welcome to the Minecraft Items API v2! This API provides comprehensive access to information about items and blocks in Minecraft, from version 1.11 to the latest release.
 
 
