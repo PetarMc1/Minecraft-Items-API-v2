@@ -307,12 +307,21 @@
     "Block": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "number"
+        },
+        "displayName": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         },
-        "id": {
-          "type": "integer"
-        }
+        "hardness": {
+          "type": "number"
+        },
+        "stackSize": {
+          "type": "number"
+        },
       }
     },
     "Effect": {
@@ -334,3 +343,4 @@
     }
   }
 }
+
