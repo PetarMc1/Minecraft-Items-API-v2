@@ -20,16 +20,17 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             const block = minecraftBlocks.find((block: any) => block.id === parseInt(blockId as string, 10));
 
             if (block) {
+                const prettyJson = JSON.stringify(block, null, 2); // Indentation with 2 spaces
                 res.setHeader('Content-Type', 'application/json');
-                res.status(200).json(block);
+                res.status(200).send(prettyJson);
             } else {
                 res.status(404).json({ message: "Block not found" });
             }
         } catch (error) {
             if (error instanceof Error) {
-                res.status(500).json({ message: "Internal Server Error", error: error.message });
+                res.status(500).json({ message: "Server Error", error: error.message });
             } else {
-                res.status(500).json({ message: "Internal Server Error", error: "An unknown error occurred" });
+                res.status(500).json({ message: "Server Error", error: "An unknown error occurred" });
             }
         }
     } else {
