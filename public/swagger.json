@@ -2,7 +2,7 @@
   "swagger": "2.0",
   "info": {
     "title": "Minecraft Items API v2",
-    "description": "API for retrieving Minecraft item and block information\nGithub repo: https://github.com/PetarMc1/Minecraft-Items-API-v2"
+    "description": "API for retrieving Minecraft item, block and effects information\nGithub repo: https://github.com/PetarMc1/Minecraft-Items-API-v2"
   },
   "paths": {
     "/v2/name/items/{version}/{itemName}": {
@@ -192,6 +192,98 @@
           }
         }
       }
+    },
+    "/v2/name/effects/{version}/{effectName}": {
+      "get": {
+        "tags": ["Effects"],
+        "summary": "Get effect information by name and version",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "description": "Minecraft version",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "1.9",
+              "1.10",
+              "1.11",
+              "1.12",
+              "1.13",
+              "1.14",
+              "1.15",
+              "1.16",
+              "1.17",
+              "1.19",
+              "1.20"
+            ]
+          },
+          {
+            "name": "effectName",
+            "in": "path",
+            "description": "Name of the effect",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Effect"
+            }
+          },
+          "404": {
+            "description": "Block not found"
+          }
+        }
+      }
+    },
+    "/v2/id/effects/{version}/{effectId}": {
+      "get": {
+        "tags": ["Effects"],
+        "summary": "Get effect information by version and ID",
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "description": "Minecraft version",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "1.9",
+              "1.10",
+              "1.11",
+              "1.12",
+              "1.13",
+              "1.14",
+              "1.15",
+              "1.16",
+              "1.17",
+              "1.19",
+              "1.20"
+            ]
+          },
+          {
+            "name": "effectId",
+            "in": "path",
+            "description": "ID of the effect",
+            "required": true,
+            "type": "integer"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Effect"
+            }
+          },
+          "404": {
+            "description": "Block not found"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -214,6 +306,23 @@
         },
         "id": {
           "type": "integer"
+        }
+      }
+    },
+    "Effect": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "number"
+        },
+        "name": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
         }
       }
     }
