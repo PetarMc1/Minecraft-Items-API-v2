@@ -290,11 +290,17 @@
     "Item": {
       "type": "object",
       "properties": {
+        "id": {
+          "type": "number"
+        },
+        "displayname": {
+          "type": "string"
+        },
         "name": {
           "type": "string"
         },
-        "id": {
-          "type": "integer"
+        "stacksize": {
+          "type": "number"
         }
       }
     },
