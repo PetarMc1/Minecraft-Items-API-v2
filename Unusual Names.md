@@ -1,1 +1,119 @@
 
+<!--Check the [decumentation]() for more info.-->
+
+
+# 1.9
+
+**- `DisplayName` is/are `name`**
+
+## Items
+
+- Grass Block is `grass`
+- Wooden Planks are `planks`
+- Sapling is `sapling`
+- Wood is `log`
+- Leaves are `leaves`
+- Note Block isnt `note_block` its `noteblock`
+- Vines are `vine`
+- Powered Rail is `golden_rail`
+- Monster Spawner is `mob_spawner`
+- Cobblestone Stairs are `stone_stairs`
+- Oak Fence is `fence`
+- Jack o'Lantern is `lit_pumpkin`
+- Stone Bricks are `stonebrick` 
+- Stained Clay is `stained_hardened_clay`
+- Leaves are `leaves`
+- Leaves (again) are `leaves2`
+- Wood (again) is `log2`
+- Slime Block is `slime`
+- Hay Bale is `hay_block`
+- Large Flowers are `double_plant` 
+- Red Sandstone Slab is `stone_slab2`
+- Seeds are `wheat_seeds`
+- Leather Cap is `leather_helmet`
+- Leather Tunic is `leather_chestplate`
+- Leather Pants are `leather_leggings`
+- Chain Helmet is `chainmail_helmet`
+- Chain Chestplate is `chainmail_chestplate`
+- Chain Leggings are `chainmail_leggings`
+- Chain Boots is `chainmail_boots`
+- Raw Porkchop is `porkchop`
+- Milk is `milk_buket`
+- Clay is `clay_ball`
+- Sugar Canes are `reeds`
+- Slimeball is `slime_ball`
+- Map is `filled_map`
+- Raw Beef is `beef`
+- Steak is `cooked_beef`
+- Raw Chicken is `chicken`
+- Glistering Melon is `speckled_melon`
+- Book and Quill is `writable_book`
+- Empty Map is `map`
+- Firework Rocket is `fireworks`
+- Firework Star is `firework_charge`
+- Redstone Comparator is `comperator`
+- Nether Brick is `netherbrick`
+- Raw Rabbit is `rabbit`
+- Raw Mutton is `mutton`
+- Red Sandstone Slab is `stone_slab2`
+- Popped Chorus Fruit is `chorus_fruit_popped`
+- Cobweb is `web` 
+- Grass is `tallgrass`
+- Dandelion is `yellow flower`
+- Poppy is `red_flower`
+- Cat Disc -> `record_cat`
+- 13 Disc -> `record_13`
+- Blocks Disc -> `record_blocks`
+- Chirp Disc -> `record_chirp`
+- Far Disc -> `record_far`
+- Mall Disc -> `record_mall` 
+- Mellohi Disc -> `record_mellohi`
+- Stal Disc -> `record_stal`
+- Strad Disc -> `record_strad` 
+- Ward Disc -> `record_ward`
+- 11 Disc -> `record_11` 
+- Wait Disc -> `record_whait`
+
+## Blocks
+- Grass Block is `grass`
+- Wood Planks is `planks`
+- Sapling is `sapling`
+- Water is `flowing_water`
+- Stationary Water is `water`
+- Lava is `flowing_lava` 
+- Stationary Lava is `lava`
+- Wood is `log`
+- Leaves are `leaves`
+- Powered Rail is `golden_rail`
+- Cobweb is `web` 
+- Grass is `tallgrass`
+- Dandelion is `yellow flower`
+- Poppy is `red_flower`
+- Bricks are `brick_block`
+- Monster Spawner is `mob_spawner`
+- Burning Furnace is `lit_furnace`
+- Glowing Redstone Ore is `lit_redstone_ore`
+- Redstone Torch (inactive) is `unlit_redstone_torch`
+- Snow (layer) is `snow_layer`
+- Sugar Cane is `reeds`
+- Jack o'Lantern is `lit_pumpkin`
+- Redstone Repeater (inactive) is `unpowered_repeater`
+- Redstone Repeater (active) is `powered_repeater`
+- Stone Bricks are `stonebrick`
+- Vines are `vine`
+- Lily Pad is `waterlily`
+- Redstone Lamp (active) is `lit_redstone_lamp`
+- Carrot (planted) is `carrots`
+- Potato (planted) is `potatoes`
+- Mob head is `skull`
+- Redstone Comparator is `unpowered_comparator`
+- Redstone Comparator (deprecated) is `powered_comparator`
+- Daylight Sensor is `daylight_detector`
+- Stained Clay is `stained_hardened_clay`
+- Wood (Acacia/Dark Oak) is `log2`
+- Hay Bale is `hay_block`
+- Large Flowers are `double_plant`
+- Double Red Sandstone Slab is `double_stone_slab2`
+- Red Sandstone Slab is `stone_slab2`
+- End Stone Bricks are `end_bricks`
+- Beetroot Seeds (planted) are `beetroots`
