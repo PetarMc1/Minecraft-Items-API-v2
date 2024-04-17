@@ -146,7 +146,7 @@
         }
       }
     },
-    "/v2/is/blocks/{version}/{blockId}": {
+    "/v2/id/blocks/{version}/{blockId}": {
       "get": {
         "tags": ["Blocks"],
         "summary": "Get block information by version and ID",
