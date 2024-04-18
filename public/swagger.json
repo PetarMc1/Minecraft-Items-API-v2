@@ -321,7 +321,7 @@
         },
         "stackSize": {
           "type": "number"
-        },
+        }
       }
     },
     "Effect": {
