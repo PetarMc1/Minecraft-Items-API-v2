@@ -15,8 +15,8 @@ dependencies:
     specifier: ^18
     version: 18.2.0(react@18.2.0)
   swagger-ui-react:
-    specifier: ^5.16.1
-    version: 5.16.1(@types/react@18.2.79)(react-dom@18.2.0)(react@18.2.0)
+    specifier: ^5.16.2
+    version: 5.16.2(@types/react@18.2.79)(react-dom@18.2.0)(react@18.2.0)
 
 devDependencies:
   '@types/node':
@@ -2279,8 +2279,8 @@ packages:
       - debug
     dev: false
 
-  /swagger-ui-react@5.16.1(@types/react@18.2.79)(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-y3pKvG9WDmULlrz5JBcebGpZpntS3U5m8SCJF19CJqrBODPbgXsDSLrZl2Qlqlai8u4y5MvIzPS1xRYRiVDdYQ==}
+  /swagger-ui-react@5.16.2(@types/react@18.2.79)(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-trni55effpq3O2nqnBCMjr3mmFpkpBvhAQa9MDyWleRSkAt4z2aETYiU9/yaIJqrzEL92gUnI7f8cVC2ncW51g==}
     peerDependencies:
       react: '>=16.8.0 <19'
       react-dom: '>=16.8.0 <19'
