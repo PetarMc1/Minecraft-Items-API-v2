@@ -34,9 +34,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
             const biome = minecraftBiomes.find((biome: Biome) => biome.name === biomeName);
 
             if (biome) {
-                const prettyerJson = JSON.stringify(biome, null, 2); // Indentation with 2 spaces
+                const prettierJson = JSON.stringify(biome, null, 2);
                 res.setHeader('Content-Type', 'application/json');
-                res.status(200).send(prettyerJson);
+                res.status(200).send(prettierJson);
             } else {
                 res.status(404).json({ message: "Biome name not found" });
             }
