@@ -284,6 +284,54 @@
           }
         }
       }
+    },
+    "/v2/name/biomes/{version}/{biomeName}": {
+      "get": {
+        "summary": "Get biome information by version and name",
+        "tags": ["Biomes"],
+        "parameters": [
+          {
+            "name": "version",
+            "in": "path",
+            "description": "Minecraft version",
+            "required": true,
+            "type": "string",
+            "enum": [
+              "1.9",
+              "1.10",
+              "1.11",
+              "1.12",
+              "1.13",
+              "1.14",
+              "1.15",
+              "1.16",
+              "1.17",
+              "1.18",
+              "1.19",
+              "1.20"
+            ]
+          },
+          {
+            "name": "biomeName",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "schema": {
+              "$ref": "#/definitions/Biome"
+            }
+          },
+          "404": {
+            "description": "Biome not found"
+          }
+        }
+      }
     }
   },
   "definitions": {
@@ -340,7 +388,46 @@
           "type": "string"
         }
       }
+    },
+    "Biome": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "name": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        },
+        "temperature": {
+          "type": "number"
+        },
+        "precipitation": {
+          "type": "string"
+        },
+        "depth": {
+          "type": "number"
+        },
+        "dimension": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "color": {
+          "type": "integer"
+        },
+        "rainfall": {
+          "type": "number"
+        },
+        "child": {
+          "type": "integer"
+        }
+      }
     }
   }
 }
+
 
