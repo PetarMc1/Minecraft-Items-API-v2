@@ -5,7 +5,7 @@ import 'swagger-ui-react/swagger-ui.css';
 const SwaggerViewer: React.FC = () => {
   return (
     <div>
-      <SwaggerUI url="/swagger.json" />
+      <SwaggerUI url="/openapi" />
     </div>
   );
 };
