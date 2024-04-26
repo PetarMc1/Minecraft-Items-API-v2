@@ -7,16 +7,16 @@ settings:
 dependencies:
   next:
     specifier: 14.2.3
-    version: 14.2.3(react-dom@18.2.0)(react@18.3.0)
+    version: 14.2.3(react-dom@18.3.0)(react@18.3.0)
   react:
     specifier: ^18
     version: 18.3.0
   react-dom:
     specifier: ^18
-    version: 18.2.0(react@18.3.0)
+    version: 18.3.0(react@18.3.0)
   swagger-ui-react:
     specifier: ^5.17.2
-    version: 5.17.2(@types/react@18.2.79)(react-dom@18.2.0)(react@18.3.0)
+    version: 5.17.2(@types/react@18.2.79)(react-dom@18.3.0)(react@18.3.0)
 
 devDependencies:
   '@types/node':
@@ -27,7 +27,7 @@ devDependencies:
     version: 18.2.79
   '@types/react-dom':
     specifier: ^18
-    version: 18.2.25
+    version: 18.3.0
   '@types/swagger-ui-react':
     specifier: ^4.18.3
     version: 4.18.3
@@ -582,8 +582,8 @@ packages:
       types-ramda: 0.29.10
     dev: false
 
-  /@types/react-dom@18.2.25:
-    resolution: {integrity: sha512-o/V48vf4MQh7juIKZU2QGDfli6p1+OOi5oXx36Hffpc9adsHeXjVp8rHuPkjd8VT8sOJ2Zp05HR7CdpGTIUFUA==}
+  /@types/react-dom@18.3.0:
+    resolution: {integrity: sha512-EhwApuTmMBmXuFOikhQLIBUn6uFg81SwLMOAUgodJF14SOBOCMdU04gDoYi0WOJJHD144TL32z4yDqCW3dnkQg==}
     dependencies:
       '@types/react': 18.2.79
     dev: true
@@ -1280,7 +1280,7 @@ packages:
     dev: false
     optional: true
 
-  /next@14.2.3(react-dom@18.2.0)(react@18.3.0):
+  /next@14.2.3(react-dom@18.3.0)(react@18.3.0):
     resolution: {integrity: sha512-dowFkFTR8v79NPJO4QsBUtxv0g9BrS/phluVpMAt2ku7H+cbcBJlopXjkWlwxrk/xGqMemr7JkGPGemPrLLX7A==}
     engines: {node: '>=18.17.0'}
     hasBin: true
@@ -1305,7 +1305,7 @@ packages:
       graceful-fs: 4.2.11
       postcss: 8.4.31
       react: 18.3.0
-      react-dom: 18.2.0(react@18.3.0)
+      react-dom: 18.3.0(react@18.3.0)
       styled-jsx: 5.1.1(react@18.3.0)
     optionalDependencies:
       '@next/swc-darwin-arm64': 14.2.3
@@ -1575,14 +1575,14 @@ packages:
       react: 18.3.0
     dev: false
 
-  /react-dom@18.2.0(react@18.3.0):
-    resolution: {integrity: sha512-6IMTriUmvsjHUjNtEDudZfuDQUoWXVxKHhlEGSk81n4YFS+r/Kl99wXiwlVXtPBtJenozv2P+hxDsw9eA7Xo6g==}
+  /react-dom@18.3.0(react@18.3.0):
+    resolution: {integrity: sha512-zaKdLBftQJnvb7FtDIpZtsAIb2MZU087RM8bRDZU8LVCCFYjPTsDZJNFUWPcVz3HFSN1n/caxi0ca4B/aaVQGQ==}
     peerDependencies:
-      react: ^18.2.0
+      react: ^18.3.0
     dependencies:
       loose-envify: 1.4.0
       react: 18.3.0
-      scheduler: 0.23.0
+      scheduler: 0.23.1
     dev: false
 
   /react-immutable-proptypes@2.2.0(immutable@3.8.2):
@@ -1594,7 +1594,7 @@ packages:
       invariant: 2.2.4
     dev: false
 
-  /react-immutable-pure-component@2.2.2(immutable@3.8.2)(react-dom@18.2.0)(react@18.3.0):
+  /react-immutable-pure-component@2.2.2(immutable@3.8.2)(react-dom@18.3.0)(react@18.3.0):
     resolution: {integrity: sha512-vkgoMJUDqHZfXXnjVlG3keCxSO/U6WeDQ5/Sl0GK2cH8TOxEzQ5jXqDXHEL/jqk6fsNxV05oH5kD7VNMUE2k+A==}
     peerDependencies:
       immutable: '>= 2 || >= 4.0.0-rc'
@@ -1603,7 +1603,7 @@ packages:
     dependencies:
       immutable: 3.8.2
       react: 18.3.0
-      react-dom: 18.2.0(react@18.3.0)
+      react-dom: 18.3.0(react@18.3.0)
     dev: false
 
   /react-inspector@6.0.2(react@18.3.0):
@@ -1733,8 +1733,8 @@ packages:
     resolution: {integrity: sha512-rp3So07KcdmmKbGvgaNxQSJr7bGVSVk5S9Eq1F+ppbRo70+YeaDxkw5Dd8NPN+GD6bjnYm2VuPuCXmpuYvmCXQ==}
     dev: false
 
-  /scheduler@0.23.0:
-    resolution: {integrity: sha512-CtuThmgHNg7zIZWAXi3AsyIzA3n4xx7aNyjwC2VJldO2LMVDhFK+63xGqq6CsJH4rTAt6/M+N4GhZiDYPx9eUw==}
+  /scheduler@0.23.1:
+    resolution: {integrity: sha512-5GKS5JGfiah1O38Vfa9srZE4s3wdHbwjlCrvIookrg2FO9aIwKLOJXuJQFlEfNcVSOXuaL2hzDeY20uVXcUtrw==}
     dependencies:
       loose-envify: 1.4.0
     dev: false
@@ -1905,7 +1905,7 @@ packages:
       - debug
     dev: false
 
-  /swagger-ui-react@5.17.2(@types/react@18.2.79)(react-dom@18.2.0)(react@18.3.0):
+  /swagger-ui-react@5.17.2(@types/react@18.2.79)(react-dom@18.3.0)(react@18.3.0):
     resolution: {integrity: sha512-jwhKQ0IdM1t77clbJ9EorL7+6B5Sr1mG+ryqSELxT5MaG4y3yOIyFbZ0Xn/EnSyRuww/V8FTK/0KIX3gf41taw==}
     peerDependencies:
       react: '>=16.8.0 <19'
@@ -1930,9 +1930,9 @@ packages:
       react: 18.3.0
       react-copy-to-clipboard: 5.1.0(react@18.3.0)
       react-debounce-input: 3.3.0(react@18.3.0)
-      react-dom: 18.2.0(react@18.3.0)
+      react-dom: 18.3.0(react@18.3.0)
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
-      react-immutable-pure-component: 2.2.2(immutable@3.8.2)(react-dom@18.2.0)(react@18.3.0)
+      react-immutable-pure-component: 2.2.2(immutable@3.8.2)(react-dom@18.3.0)(react@18.3.0)
       react-inspector: 6.0.2(react@18.3.0)
       react-redux: 9.1.1(@types/react@18.2.79)(react@18.3.0)(redux@5.0.1)
       react-syntax-highlighter: 15.5.0(react@18.3.0)
