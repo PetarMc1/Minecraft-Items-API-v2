@@ -16,7 +16,7 @@ dependencies:
     version: 18.2.0(react@18.3.0)
   swagger-ui-react:
     specifier: ^5.17.2
-    version: 5.17.2(@types/react@18.2.79)(react-dom@18.2.0)(react@18.3.0)
+    version: 5.17.2(@types/react@18.3.0)(react-dom@18.2.0)(react@18.3.0)
 
 devDependencies:
   '@types/node':
@@ -24,7 +24,7 @@ devDependencies:
     version: 20.12.7
   '@types/react':
     specifier: ^18
-    version: 18.2.79
+    version: 18.3.0
   '@types/react-dom':
     specifier: ^18
     version: 18.2.25
@@ -585,11 +585,11 @@ packages:
   /@types/react-dom@18.2.25:
     resolution: {integrity: sha512-o/V48vf4MQh7juIKZU2QGDfli6p1+OOi5oXx36Hffpc9adsHeXjVp8rHuPkjd8VT8sOJ2Zp05HR7CdpGTIUFUA==}
     dependencies:
-      '@types/react': 18.2.79
+      '@types/react': 18.3.0
     dev: true
 
-  /@types/react@18.2.79:
-    resolution: {integrity: sha512-RwGAGXPl9kSXwdNTafkOEuFrTBD5SA2B3iEB96xi8+xu5ddUa/cpvyVCSNn+asgLCTHkb5ZxN8gbuibYJi4s1w==}
+  /@types/react@18.3.0:
+    resolution: {integrity: sha512-DiUcKjzE6soLyln8NNZmyhcQjVv+WsUIFSqetMN0p8927OztKT4VTfFTqsbAi5oAGIcgOmOajlfBqyptDDjZRw==}
     dependencies:
       '@types/prop-types': 15.7.12
       csstype: 3.1.3
@@ -597,7 +597,7 @@ packages:
   /@types/swagger-ui-react@4.18.3:
     resolution: {integrity: sha512-Mo/R7IjDVwtiFPs84pWvh5pI9iyNGBjmfielxqbOh2Jv+8WVSDVe8Nu25kb5BOuV2xmGS3o33jr6nwDJMBcX+Q==}
     dependencies:
-      '@types/react': 18.2.79
+      '@types/react': 18.3.0
     dev: true
 
   /@types/unist@2.0.10:
@@ -1618,7 +1618,7 @@ packages:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
 
-  /react-redux@9.1.1(@types/react@18.2.79)(react@18.3.0)(redux@5.0.1):
+  /react-redux@9.1.1(@types/react@18.3.0)(react@18.3.0)(redux@5.0.1):
     resolution: {integrity: sha512-5ynfGDzxxsoV73+4czQM56qF43vsmgJsO22rmAvU5tZT2z5Xow/A2uhhxwXuGTxgdReF3zcp7A80gma2onRs1A==}
     peerDependencies:
       '@types/react': ^18.2.25
@@ -1633,7 +1633,7 @@ packages:
       redux:
         optional: true
     dependencies:
-      '@types/react': 18.2.79
+      '@types/react': 18.3.0
       '@types/use-sync-external-store': 0.0.3
       react: 18.3.0
       redux: 5.0.1
@@ -1905,7 +1905,7 @@ packages:
       - debug
     dev: false
 
-  /swagger-ui-react@5.17.2(@types/react@18.2.79)(react-dom@18.2.0)(react@18.3.0):
+  /swagger-ui-react@5.17.2(@types/react@18.3.0)(react-dom@18.2.0)(react@18.3.0):
     resolution: {integrity: sha512-jwhKQ0IdM1t77clbJ9EorL7+6B5Sr1mG+ryqSELxT5MaG4y3yOIyFbZ0Xn/EnSyRuww/V8FTK/0KIX3gf41taw==}
     peerDependencies:
       react: '>=16.8.0 <19'
@@ -1934,7 +1934,7 @@ packages:
       react-immutable-proptypes: 2.2.0(immutable@3.8.2)
       react-immutable-pure-component: 2.2.2(immutable@3.8.2)(react-dom@18.2.0)(react@18.3.0)
       react-inspector: 6.0.2(react@18.3.0)
-      react-redux: 9.1.1(@types/react@18.2.79)(react@18.3.0)(redux@5.0.1)
+      react-redux: 9.1.1(@types/react@18.3.0)(react@18.3.0)(redux@5.0.1)
       react-syntax-highlighter: 15.5.0(react@18.3.0)
       redux: 5.0.1
       redux-immutable: 4.0.0(immutable@3.8.2)
