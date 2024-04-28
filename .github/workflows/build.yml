@@ -5,7 +5,9 @@ on:
     branches:
       - 'dev/*'
       - 'issue-*'
-
+  pull_request:
+    branches:
+      - '*'
 
 jobs:
   build:
