@@ -5,10 +5,14 @@ export default function Document() {
     <Html lang="en">
       <Head />
       <head>
-      <link rel="shortcut icon" href="/favicon.ico" />
-      <meta name="description" content="Minecraft v2 API for retrieving item and block information."></meta>
-      <meta name="keywords" content="minecraft api, mc api, minecraft api v2, mc api v2, minecraft blocks api, minecraft items api, mc blocks api, mc items api"></meta>
-      <title>Minecraft Items API v2</title>
+        <title>Minecraft API</title>
+        <meta name="description" content="API for retrieving information for Minecraft items, blocks, effects, and other" />
+        <meta name="keywords" content="Minecraft items api, Minecraft api, minecraft blocks API, Petar_mc's API, Minecraft API" />
+        <meta name="author" content="Petar_mc" />
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content="Minecraft API" />
+        <meta property="og:description" content="API for retrieving information for Minecraft items, blocks, effects, and other" />
+        <meta property="og:image" content="/public/favicon.ico" />
       </head>
       <body>
         <Main />
