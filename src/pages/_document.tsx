@@ -16,7 +16,7 @@ class MyDocument extends Document {
           <meta property="og:type" content="website"/>
           <meta property="og:title" content="Minecraft Items API v2"/>
           <meta property="og:description" content="API for retrieving information for Minecraft items, blocks, effects, and other"/>
-        	<meta property="og:image" content="https://github.com/PetarMc1/Minecraft-Items-API-v2/blob/ca285895dac643ffd4467d8619102685c33862f2/public/logo.png">
+       	  <meta property="og:image" content="https://github.com/PetarMc1/Minecraft-Items-API-v2/blob/ca285895dac643ffd4467d8619102685c33862f2/public/logo.png"/>
         </Head>
         <body>
           <Main />
