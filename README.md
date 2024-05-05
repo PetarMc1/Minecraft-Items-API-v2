@@ -6,7 +6,7 @@
 ![GitHub License](https://img.shields.io/github/license/PetarMc1/Minecraft-Items-API-v2%20?color=blue)
 
 
-Welcome to the Minecraft Items API v2! This API provides comprehensive access to information about items and blocks in Minecraft, from version 1.11 to the latest release.
+Welcome to the Minecraft Items API v2! This API provides comprehensive access to information about items, blocks, effects and other things in Minecraft, from version 1.9 to the latest release.
 
 
 ## How to get API running on your local machine for development.
