@@ -1,6 +1,6 @@
 # Contributing Guidelines
 
-Thank you for considering contributing to the Minecraft Items and Blocks API v2! Your efforts to improve the project and make it even better for users are highly valued. Please take a moment to review the following guidelines before submitting your contributions.
+Thank you for considering contributing to the Minecraft Items API v2! Your efforts to improve the project and make it even better for users are highly valued. Please take a moment to review the following guidelines before submitting your contributions.
 
 ## Bug Reports and Feature Requests
 If you encounter a bug or have a feature request, please ensure that it has not already been reported by checking the issue tracker. If it hasn't been reported yet, feel free to open a new issue with a clear description of the problem or the desired feature.
