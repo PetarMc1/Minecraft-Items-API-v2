@@ -15,10 +15,10 @@ Welcome to the Minecraft Items API v2! This API provides comprehensive access to
 
 ### Local Development
 
-1. Clone the repository. If you plan to make changes, create a fork first!
+1. Clone the repository (only the `master` branch). If you plan to make changes, create a fork first!
 
 ```
-git clone https://github.com/PetarMc1/Minecraft-Items-API-v2
+git clone https://github.com/PetarMc1/Minecraft-Items-API-v2 -b master
 ```
 
 2. Install all required dependencies.
@@ -50,7 +50,7 @@ to be hosted on any static content server.
 ## Usage
 https://api.petarmc.com
 
-Begin your journey with the Minecraft Items API v2 by making HTTP requests to the endpoint. Explore the API [documentation](https://docs.petarmc.com/api-v2/getting-started) for comprehensive details on available endpoints, request parameters, and response formats.
+Begin your journey with the Minecraft Items API v2 by making HTTP requests to the endpoint. Explore the API [documentation](https://docs.petarmc.com/api/available-endpoints) for comprehensive details on available endpoints, request parameters, and response formats.
 
 # Contributing
 Check [CONTRIBUITNG.md](/CONTRIBUTING.md)
