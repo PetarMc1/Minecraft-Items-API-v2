@@ -1,4 +1,4 @@
-# Minecraft Items and Blocks API v2
+# Minecraft Items API v2
 [![Discord](https://img.shields.io/discord/1217057211575042058?logo=Discord&label=Discord&color=blue)](https://discord.gg/8Ab2uuqSYE)
 ![GitHub Release](https://img.shields.io/github/v/release/PetarMc1/Minecraft-Items-API-v2?include_prereleases&logo=github&color=red)
 [![GitHub Issues](https://img.shields.io/github/issues/PetarMc1/Minecraft-Items-API-v2?logo=github)](https://github.com/PetarMc1/Minecraft-Items-API-v2/issues) 
@@ -6,7 +6,7 @@
 ![GitHub License](https://img.shields.io/github/license/PetarMc1/Minecraft-Items-API-v2%20?color=blue)
 
 
-Welcome to the Minecraft Items API v2! This API provides comprehensive access to information about items, blocks, effects and other things in Minecraft, from version 1.9 to the latest release.
+Welcome to the Minecraft Items API v2! This API provides comprehensive access to information about items, blocks, effects, and other things in Minecraft, from version 1.9 to the latest release.
 
 
 ## How to get API running on your local machine for development.
@@ -58,4 +58,4 @@ Check [CONTRIBUITNG.md](/CONTRIBUTING.md)
 # License
 This project is licensed under the [MIT](/LICENCE) License.
 
-Everything in the`Data` folder is copied from [PrismarineJS/minecraft-data](https://github.com/PrismarineJS/minecraft-data)
+Everything in the `Data` folder is copied from [PrismarineJS/minecraft-data](https://github.com/PrismarineJS/minecraft-data)
