@@ -2,6 +2,7 @@ openapi: 3.1.0
 info:
   title: Minecraft Items API v2
   description: API for retrieving Minecraft item, block, and effects information
+
 paths:
   /v2/name/items/{version}/{itemName}:
     get:
@@ -16,18 +17,18 @@ paths:
           schema:
             type: string
             enum:
-              - 1.9
-              - 1.10
-              - 1.11
-              - 1.12
-              - 1.13
-              - 1.14
-              - 1.15
-              - 1.16
-              - 1.17
-              - 1.18
-              - 1.19
-              - 1.20
+              - '1.9'
+              - '1.10'
+              - '1.11'
+              - '1.12'
+              - '1.13'
+              - '1.14'
+              - '1.15'
+              - '1.16'
+              - '1.17'
+              - '1.18'
+              - '1.19'
+              - '1.20'
         - name: itemName
           in: path
           description: Name of the Minecraft item
@@ -56,18 +57,18 @@ paths:
           schema:
             type: string
             enum:
-              - 1.9
-              - 1.10
-              - 1.11
-              - 1.12
-              - 1.13
-              - 1.14
-              - 1.15
-              - 1.16
-              - 1.17
-              - 1.18
-              - 1.19
-              - 1.20
+              - '1.9'
+              - '1.10'
+              - '1.11'
+              - '1.12'
+              - '1.13'
+              - '1.14'
+              - '1.15'
+              - '1.16'
+              - '1.17'
+              - '1.18'
+              - '1.19'
+              - '1.20'
         - name: itemId
           in: path
           description: ID of the Minecraft item
@@ -96,18 +97,18 @@ paths:
           schema:
             type: string
             enum:
-              - 1.9
-              - 1.10
-              - 1.11
-              - 1.12
-              - 1.13
-              - 1.14
-              - 1.15
-              - 1.16
-              - 1.17
-              - 1.18
-              - 1.19
-              - 1.20
+              - '1.9'
+              - '1.10'
+              - '1.11'
+              - '1.12'
+              - '1.13'
+              - '1.14'
+              - '1.15'
+              - '1.16'
+              - '1.17'
+              - '1.18'
+              - '1.19'
+              - '1.20'
         - name: blockName
           in: path
           description: Name of the Minecraft block
@@ -136,18 +137,18 @@ paths:
           schema:
             type: string
             enum:
-              - 1.9
-              - 1.10
-              - 1.11
-              - 1.12
-              - 1.13
-              - 1.14
-              - 1.15
-              - 1.16
-              - 1.17
-              - 1.18
-              - 1.19
-              - 1.20
+              - '1.9'
+              - '1.10'
+              - '1.11'
+              - '1.12'
+              - '1.13'
+              - '1.14'
+              - '1.15'
+              - '1.16'
+              - '1.17'
+              - '1.18'
+              - '1.19'
+              - '1.20'
         - name: blockId
           in: path
           description: ID of the Minecraft block
@@ -176,17 +177,17 @@ paths:
           schema:
             type: string
             enum:
-              - 1.9
-              - 1.10
-              - 1.11
-              - 1.12
-              - 1.13
-              - 1.14
-              - 1.15
-              - 1.16
-              - 1.17
-              - 1.19
-              - 1.20
+              - '1.9'
+              - '1.10'
+              - '1.11'
+              - '1.12'
+              - '1.13'
+              - '1.14'
+              - '1.15'
+              - '1.16'
+              - '1.17'
+              - '1.19'
+              - '1.20'
         - name: effectName
           in: path
           description: Name of the effect
@@ -215,17 +216,17 @@ paths:
           schema:
             type: string
             enum:
-              - 1.9
-              - 1.10
-              - 1.11
-              - 1.12
-              - 1.13
-              - 1.14
-              - 1.15
-              - 1.16
-              - 1.17
-              - 1.19
-              - 1.20
+              - '1.9'
+              - '1.10'
+              - '1.11'
+              - '1.12'
+              - '1.13'
+              - '1.14'
+              - '1.15'
+              - '1.16'
+              - '1.17'
+              - '1.19'
+              - '1.20'
         - name: effectId
           in: path
           description: ID of the effect
@@ -254,18 +255,18 @@ paths:
           schema:
             type: string
             enum:
-              - 1.9
-              - 1.10
-              - 1.11
-              - 1.12
-              - 1.13
-              - 1.14
-              - 1.15
-              - 1.16
-              - 1.17
-              - 1.18
-              - 1.19
-              - 1.20
+              - '1.9'
+              - '1.10'
+              - '1.11'
+              - '1.12'
+              - '1.13'
+              - '1.14'
+              - '1.15'
+              - '1.16'
+              - '1.17'
+              - '1.18'
+              - '1.19'
+              - '1.20'
         - name: biomeName
           in: path
           required: true
@@ -293,18 +294,18 @@ paths:
           schema:
             type: string
             enum:
-              - 1.9
-              - 1.10
-              - 1.11
-              - 1.12
-              - 1.13
-              - 1.14
-              - 1.15
-              - 1.16
-              - 1.17
-              - 1.18
-              - 1.19
-              - 1.20
+              - '1.9'
+              - '1.10'
+              - '1.11'
+              - '1.12'
+              - '1.13'
+              - '1.14'
+              - '1.15'
+              - '1.16'
+              - '1.17'
+              - '1.18'
+              - '1.19'
+              - '1.20'
         - name: biomeId
           in: path
           required: true
