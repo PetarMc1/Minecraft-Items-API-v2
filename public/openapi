@@ -3,6 +3,13 @@ info:
   title: Minecraft Items API v2
   description: API for retrieving Minecraft item, block, and effects information
 
+servers:
+  - url: https://api.petarmc.com/
+    description: Production server
+  - url: http://localhost:3000/
+    description: Local development server
+
+
 paths:
   /v2/name/items/{version}/{itemName}:
     get:
