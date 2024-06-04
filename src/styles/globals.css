@@ -106,3 +106,23 @@ a {
     color-scheme: light;
   }
 }
+
+
+.announcement {
+  background-color: #ff5733;
+  color: black;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px auto;
+  width: 80%;
+  text-align: center;
+  font-size: 20px;
+}
+
+.announcement p {
+  margin: 0;
+}
+
+.announcement a {
+  text-decoration: underline;
+}

@@ -1,4 +1,10 @@
 # Minecraft Items API v2
+
+
+> [!WARNING]
+> Minecraft Items API v2 reached End of Life and is no longer supported! Check the [documentation](https://docs.petarmc.com/) for more info.
+
+
 [![Discord](https://img.shields.io/discord/1217057211575042058?logo=Discord&label=Discord&color=blue)](https://discord.gg/8Ab2uuqSYE)
 ![GitHub Release](https://img.shields.io/github/v/release/PetarMc1/Minecraft-Items-API-v2?include_prereleases&logo=github&color=red)
 [![GitHub Issues](https://img.shields.io/github/issues/PetarMc1/Minecraft-Items-API-v2?logo=github)](https://github.com/PetarMc1/Minecraft-Items-API-v2/issues) 
