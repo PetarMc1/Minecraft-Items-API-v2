@@ -15,8 +15,8 @@ dependencies:
     specifier: ^18
     version: 18.3.1(react@18.3.1)
   swagger-ui-react:
-    specifier: ^5.17.13
-    version: 5.17.13(@types/react@18.3.3)(ramda@0.30.0)(react-dom@18.3.1)(react@18.3.1)
+    specifier: ^5.17.14
+    version: 5.17.14(@types/react@18.3.3)(ramda@0.30.0)(react-dom@18.3.1)(react@18.3.1)
 
 devDependencies:
   '@types/node':
@@ -1647,8 +1647,8 @@ packages:
       - ramda
     dev: false
 
-  /swagger-ui-react@5.17.13(@types/react@18.3.3)(ramda@0.30.0)(react-dom@18.3.1)(react@18.3.1):
-    resolution: {integrity: sha512-m844a+6KytjQtGAVWQwIZWNZFyeX9FTj7w54XAH5X5m8MeGFwQ6vc0v9gqROe733t1lgo0jUCJII8wq3Urfalw==}
+  /swagger-ui-react@5.17.14(@types/react@18.3.3)(ramda@0.30.0)(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-mCXerZrbcn4ftPYifUF0+iKIRTHoVCv0HcJc/sXl9nCe3oeWdsjmOWVqKabzzAkAa0NwsbKNJFv2UL/Ivnf6VQ==}
     peerDependencies:
       react: '>=16.8.0 <19'
       react-dom: '>=16.8.0 <19'
