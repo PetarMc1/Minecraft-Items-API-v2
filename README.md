@@ -2,7 +2,7 @@
 
 
 > [!WARNING]
-> Minecraft Items API v2 reached End of Life and is no longer supported! Check the [documentation](https://docs.petarmc.com/) for more info.
+> Minecraft Items API v2 reached End of Life and is no longer supported!
 
 
 [![Discord](https://img.shields.io/discord/1217057211575042058?logo=Discord&label=Discord&color=blue)](https://discord.gg/8Ab2uuqSYE)
