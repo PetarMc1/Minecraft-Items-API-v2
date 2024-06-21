@@ -33,7 +33,7 @@ devDependencies:
     version: 4.18.3
   typescript:
     specifier: ^5
-    version: 5.4.5
+    version: 5.5.2
 
 packages:
 
@@ -214,6 +214,7 @@ packages:
 
   /@swagger-api/apidom-ns-json-schema-draft-4@1.0.0-alpha.3:
     resolution: {integrity: sha512-kt0xVFf7FZP0tzxqS9wciwzDNj1veIUVZH1reop8XjSnmnL3osL9UReQm7C/D9NHmU4rcqWnL4Oc4m+AbXOs5A==}
+    requiresBuild: true
     dependencies:
       '@babel/runtime-corejs3': 7.24.5
       '@swagger-api/apidom-ast': 1.0.0-alpha.3
@@ -1783,8 +1784,8 @@ packages:
       ts-toolbelt: 9.6.0
     dev: false
 
-  /typescript@5.4.5:
-    resolution: {integrity: sha512-vcI4UpRgg81oIRUFwR0WSIHKt11nJ7SAVlYNIu+QpqeyXP+gpQJy/Z4+F0aGxSE4MqwjyXvW/TzgkLAx2AGHwQ==}
+  /typescript@5.5.2:
+    resolution: {integrity: sha512-NcRtPEOsPFFWjobJEtfihkLCZCXZt/os3zf8nTxjVH3RvTSxjrCamJpbExGvYOF+tFHc3pA65qpdwPbzjohhew==}
     engines: {node: '>=14.17'}
     hasBin: true
     dev: true
