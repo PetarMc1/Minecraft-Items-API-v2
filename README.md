@@ -54,7 +54,7 @@ to be hosted on any static content server.
 
 
 ## Usage
-https://api.petarmc.com
+https://mc-api.petarmc.com
 
 Begin your journey with the Minecraft Items API v2 by making HTTP requests to the endpoint. Explore the API [documentation](https://docs.petarmc.com/api/available-endpoints) for comprehensive details on available endpoints, request parameters, and response formats.
 
