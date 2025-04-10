@@ -9,7 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "15.1.4",
+    "next": "15.3.0",
     "react": "^18",
     "react-dom": "^18",
     "swagger-ui-react": "^5.17.14"
