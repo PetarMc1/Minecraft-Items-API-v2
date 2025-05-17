@@ -58,10 +58,7 @@ https://mc-api.petarmc.com
 
 Begin your journey with the Minecraft Items API v2 by making HTTP requests to the endpoint. Explore the API [documentation](https://docs.petarmc.com/api/available-endpoints) for comprehensive details on available endpoints, request parameters, and response formats.
 
-# Contributing
-Check [CONTRIBUITNG.md](/CONTRIBUTING.md)
-
 # License
 This project is licensed under the [MIT](/LICENCE) License.
 
-Everything in the `Data` folder is copied from [PrismarineJS/minecraft-data](https://github.com/PrismarineJS/minecraft-data)
+Everything in the `Data` folder is copied from [PrismarineJS/minecraft-data](https://github.com/PrismarineJS/minecraft-data) and is not under my license. Check [PrismarineJS/minecraft-data/README.md](https://github.com/PrismarineJS/minecraft-data/blob/master/README.md)

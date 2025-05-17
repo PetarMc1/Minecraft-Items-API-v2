@@ -1,5 +1,4 @@
-
-<!--Check the [decumentation]() for more info.-->
+Check the [decumentation]() for more info.
 
 
 # 1.9

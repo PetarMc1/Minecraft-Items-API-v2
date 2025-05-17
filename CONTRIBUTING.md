@@ -18,9 +18,9 @@ All contributions via pull requests are welcome. Before submitting a pull reques
 
 5. Submit a pull request (PR) to the `master` branch of the repository.
    
-6. Your PR will be reviewed, and feedback may be provided if necessary.
+6. Ill review your PR , and ill provide feedback if necessary.
 
-7. Once your contribution meets the guidelines and requirements, it will be merged into the main repository.
+7. Once your contribution meets the requirements, it will be merged into the main repository.
 
 ## License
 By contributing to the Minecraft Items API v2, you agree that your contributions will be licensed under the [MIT](/LICENCE) License.
