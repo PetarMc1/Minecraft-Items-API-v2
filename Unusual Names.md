@@ -1,4 +1,4 @@
-Check the [decumentation]() for more info.
+Check the [decumentation](https://docs.petarmc.com/api/advanced/unusual-names) for more info.
 
 
 # 1.9
