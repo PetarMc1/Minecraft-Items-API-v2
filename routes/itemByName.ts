@@ -1,39 +1,48 @@
-import { Router } from 'express';
-import fs from 'fs';
-import path from 'path';
+export async function itemByName(request: Request): Promise<Response> {
+  const url = new URL(request.url);
+  const parts = url.pathname.split('/'); // /v1/name/items/:version/:itemName
+  const version = parts[3];
+  const itemName = parts[4];
 
-const router = Router();
+  if (!version || !itemName) {
+    return new Response(JSON.stringify({ message: "Version and item name are required" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
-router.get('/:version/:itemName', (req, res) => {
-    const { version, itemName } = req.params;
-    const lowercaseItemName = itemName.toLowerCase();
+  try {
+    const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/items.json`;
+    const response = await fetch(ghUrl);
 
-    if (!version || !itemName) {
-        return res.status(400).json({ message: "Version and item name are required" });
+    if (!response.ok) {
+      return new Response(JSON.stringify({ message: "Version not found on GitHub" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
-    const filePath = path.join(process.cwd(), `src/Data/${version}/items.json`);
+    const minecraftItems = await response.json();
+    const item = minecraftItems.find((i: any) => i.name.toLowerCase() === itemName.toLowerCase());
 
-    if (!fs.existsSync(filePath)) {
-        return res.status(404).json({ message: "Version not found" });
+    if (!item) {
+      return new Response(JSON.stringify({ message: "Item not found" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
-    try {
-        const minecraftItems = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-        const item = minecraftItems.find((i: any) => i.name.toLowerCase() === lowercaseItemName);
-
-        if (!item) {
-            return res.status(404).json({ message: "Item not found" });
-        }
-
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).send(JSON.stringify(item, null, 2));
-    } catch (error) {
-        res.status(500).json({
-            message: "Server Error",
-            error: error instanceof Error ? error.message : "Unknown error"
-        });
-    }
-});
-
-export default router;
+    return new Response(JSON.stringify(item, null, 2), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({
+      message: "Server Error",
+      error: err instanceof Error ? err.message : "Unknown error",
+    }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}

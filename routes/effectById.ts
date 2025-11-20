@@ -1,38 +1,48 @@
-import { Router } from 'express';
-import fs from 'fs';
-import path from 'path';
+export async function effectById(request: Request): Promise<Response> {
+  const url = new URL(request.url);
+  const parts = url.pathname.split('/'); // /v1/id/effects/:version/:effectId
+  const version = parts[3];
+  const effectId = parts[4];
 
-const router = Router();
+  if (!version || !effectId) {
+    return new Response(JSON.stringify({ message: "Version and effect ID are required" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
-router.get('/:version/:effectId', (req, res) => {
-    const { version, effectId } = req.params;
+  try {
+    const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/effects.json`;
+    const response = await fetch(ghUrl);
 
-    if (!version || !effectId) {
-        return res.status(400).json({ message: "Version and effect ID are required" });
+    if (!response.ok) {
+      return new Response(JSON.stringify({ message: "Version not found on GitHub" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
-    const filePath = path.join(process.cwd(), `src/Data/${version}/effects.json`);
+    const minecraftEffects = await response.json();
+    const effect = minecraftEffects.find((e: any) => e.id === parseInt(effectId, 10));
 
-    if (!fs.existsSync(filePath)) {
-        return res.status(404).json({ message: "Version not found" });
+    if (!effect) {
+      return new Response(JSON.stringify({ message: "Effect not found" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
-    try {
-        const minecraftEffects = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-        const effect = minecraftEffects.find((e: any) => e.id === parseInt(effectId, 10));
-
-        if (!effect) {
-            return res.status(404).json({ message: "Effect not found" });
-        }
-
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).send(JSON.stringify(effect, null, 2));
-    } catch (error) {
-        res.status(500).json({
-            message: "Internal Server Error",
-            error: error instanceof Error ? error.message : "An unknown error occurred"
-        });
-    }
-});
-
-export default router;
+    return new Response(JSON.stringify(effect, null, 2), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({
+      message: "Internal Server Error",
+      error: err instanceof Error ? err.message : "An unknown error occurred",
+    }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}

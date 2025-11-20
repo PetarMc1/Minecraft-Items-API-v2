@@ -1,38 +1,48 @@
-import { Router } from 'express';
-import fs from 'fs';
-import path from 'path';
+export async function blockById(request: Request): Promise<Response> {
+  const url = new URL(request.url);
+  const parts = url.pathname.split('/'); // /v1/id/blocks/:version/:blockId
+  const version = parts[3];
+  const blockId = parts[4];
 
-const router = Router();
+  if (!version || !blockId) {
+    return new Response(JSON.stringify({ message: "Version and block ID are required" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
-router.get('/:version/:blockId', (req, res) => {
-    const { version, blockId } = req.params;
+  try {
+    const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/blocks.json`;
+    const response = await fetch(ghUrl);
 
-    if (!version || !blockId) {
-        return res.status(400).json({ message: "Version and block ID are required" });
+    if (!response.ok) {
+      return new Response(JSON.stringify({ message: "Version not found on GitHub" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
-    const filePath = path.join(process.cwd(), `src/Data/${version}/blocks.json`);
+    const minecraftBlocks = await response.json();
+    const block = minecraftBlocks.find((b: any) => b.id === parseInt(blockId, 10));
 
-    if (!fs.existsSync(filePath)) {
-        return res.status(404).json({ message: "Version not found" });
+    if (!block) {
+      return new Response(JSON.stringify({ message: "Block not found" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
-    try {
-        const minecraftBlocks = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-        const block = minecraftBlocks.find((b: any) => b.id === parseInt(blockId, 10));
-
-        if (!block) {
-            return res.status(404).json({ message: "Block not found" });
-        }
-
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).send(JSON.stringify(block, null, 2));
-    } catch (error) {
-        res.status(500).json({
-            message: "Server Error",
-            error: error instanceof Error ? error.message : "An unknown error occurred"
-        });
-    }
-});
-
-export default router;
+    return new Response(JSON.stringify(block, null, 2), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({
+      message: "Internal Server Error",
+      error: err instanceof Error ? err.message : "Unknown error",
+    }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}

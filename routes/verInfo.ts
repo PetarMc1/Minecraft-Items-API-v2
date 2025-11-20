@@ -1,40 +1,52 @@
-import { Router } from 'express';
-import fetch from 'node-fetch';
+export async function verInfo(request: Request): Promise<Response> {
+  const url = new URL(request.url);
+  const parts = url.pathname.split('/');
+  const version = parts[3]; // /v1/verInfo/:version
 
-const router = Router();
+  if (!version) {
+    return new Response(JSON.stringify({ message: "Version is required" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
-router.get('/:version', async (req, res) => {
-    const { version } = req.params;
-
-    if (!version) return res.status(400).json({ message: "Version is required" });
+  try {
+    let versionInfo: Record<string, any> = {
+      minecraftVersion: version,
+      version: 0,
+      majorVersion: version,
+    };
 
     try {
-        let versionInfo: Record<string, any> = {
-            minecraftVersion: version,
-            version: 0,
-            majorVersion: version,
-        };
+      const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/version.json`;
+      const response = await fetch(ghUrl);
 
-        try {
-            const url = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/version.json`;
-            const response = await fetch(url);
-            if (response.ok) {
-                versionInfo = (await response.json()) as Record<string, any>;
-            } else {
-                return res.status(404).json({ message: "GitHub version file not found" });
-            }
-        } catch {
-            return res.status(500).json({ message: "Failed to fetch GitHub version info" });
-        }
-
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(versionInfo);
-    } catch (err) {
-        res.status(500).json({
-            message: "Server Error",
-            error: err instanceof Error ? err.message : "Unknown error",
+      if (response.ok) {
+        versionInfo = (await response.json()) as Record<string, any>;
+      } else {
+        return new Response(JSON.stringify({ message: "GitHub version file not found" }), {
+          status: 404,
+          headers: { "Content-Type": "application/json" },
         });
+      }
+    } catch {
+      return new Response(JSON.stringify({ message: "Failed to fetch GitHub version info" }), {
+        status: 500,
+        headers: { "Content-Type": "application/json" },
+      });
     }
-});
 
-export default router;
+    return new Response(JSON.stringify(versionInfo, null, 2), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({
+      message: "Server Error",
+      error: err instanceof Error ? err.message : "Unknown error",
+    }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}

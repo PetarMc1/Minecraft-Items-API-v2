@@ -1,38 +1,49 @@
-import { Router } from 'express';
-import fs from 'fs';
-import path from 'path';
+export async function showNames(request: Request): Promise<Response> {
+  const url = new URL(request.url);
+  const parts = url.pathname.split('/'); // /v1/showNames/:category/:version
+  const category = parts[3];
+  const version = parts[4];
 
-const router = Router();
+  if (!category || !version) {
+    return new Response(JSON.stringify({ message: "Version and category are required" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
-router.get('/:category/:version', (req, res) => {
-    const { category, version } = req.params;
+  const validCategories = ['blocks', 'biomes', 'items', 'effects'];
+  if (!validCategories.includes(category)) {
+    return new Response(JSON.stringify({ message: `Invalid category. Must be one of: ${validCategories.join(', ')}` }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
-    if (!version || !category) {
-        return res.status(400).json({ message: "Version and category are required" });
+  try {
+    const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/${category}.json`;
+    const response = await fetch(ghUrl);
+
+    if (!response.ok) {
+      return new Response(JSON.stringify({ message: "Version or category file not found on GitHub" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
-    const validCategories = ['blocks', 'biomes', 'items', 'effects'];
-    if (!validCategories.includes(category)) {
-        return res.status(400).json({ message: `Invalid category. Must be one of: ${validCategories.join(', ')}` });
-    }
+    const data = await response.json();
+    const names = Array.isArray(data) ? data.map((item: any) => item.name) : [];
 
-    const filePath = path.join(process.cwd(), `src/Data/${version}/${category}.json`);
-
-    if (!fs.existsSync(filePath)) {
-        return res.status(404).json({ message: "Version not found" });
-    }
-
-    try {
-        const data = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-        const names = data.map((item: any) => item.name);
-        res.setHeader('Content-Type', 'application/json');
-        res.status(200).json(names);
-    } catch (error) {
-        res.status(500).json({
-            message: "Server Error",
-            error: error instanceof Error ? error.message : "Unknown error"
-        });
-    }
-});
-
-export default router;
+    return new Response(JSON.stringify(names, null, 2), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({
+      message: "Server Error",
+      error: err instanceof Error ? err.message : "Unknown error",
+    }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}

@@ -1,32 +1,48 @@
-import { Router } from 'express';
-import fs from 'fs';
-import path from 'path';
+export async function blockByName(request: Request): Promise<Response> {
+  const url = new URL(request.url);
+  const parts = url.pathname.split('/'); // /v1/name/blocks/:version/:blockName
+  const version = parts[3];
+  const blockName = parts[4]?.toLowerCase();
 
-const router = Router();
+  if (!version || !blockName) {
+    return new Response(JSON.stringify({ message: "Version and block name are required" }), {
+      status: 400,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
-router.get('/:version/:blockName', (req, res) => {
-    const { version, blockName } = req.params;
-    const lowercaseBlockName = blockName.toLowerCase();
+  try {
+    const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/blocks.json`;
+    const response = await fetch(ghUrl);
 
-    if (!version || !blockName) {
-        return res.status(400).json({ message: "Version and block name are required" });
+    if (!response.ok) {
+      return new Response(JSON.stringify({ message: "Version not found on GitHub" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
-    const filePath = path.join(process.cwd(), `src/Data/${version}/blocks.json`);
-
-    if (!fs.existsSync(filePath)) {
-        return res.status(404).json({ message: "Version not found" });
-    }
-
-    const minecraftBlocks = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
-    const block = minecraftBlocks.find((b: any) => b.name.toLowerCase() === lowercaseBlockName);
+    const minecraftBlocks = await response.json();
+    const block = minecraftBlocks.find((b: any) => b.name.toLowerCase() === blockName);
 
     if (!block) {
-        return res.status(404).json({ message: "Block not found" });
+      return new Response(JSON.stringify({ message: "Block not found" }), {
+        status: 404,
+        headers: { "Content-Type": "application/json" },
+      });
     }
 
-    res.setHeader('Content-Type', 'application/json');
-    res.status(200).send(JSON.stringify(block, null, 2));
-});
-
-export default router;
+    return new Response(JSON.stringify(block, null, 2), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  } catch (err) {
+    return new Response(JSON.stringify({
+      message: "Internal Server Error",
+      error: err instanceof Error ? err.message : "Unknown error",
+    }), {
+      status: 500,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+}

@@ -1,9 +1,12 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",
-    "moduleResolution": "NodeNext",
-    "target": "ES2020",
-    "esModuleInterop": true,
-    "strict": true
+    "target": "ES2020",            // JS version output
+    "module": "CommonJS",          // Node uses CommonJS
+    "outDir": "dist",              // <-- compiled files go here
+    "rootDir": ".",                // base folder for TS source
+    "strict": true,                // enable type checking
+    "esModuleInterop": true,       // allow import fs/express style
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
   }
 }
