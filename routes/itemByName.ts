@@ -1,8 +1,8 @@
 export async function itemByName(request: Request): Promise<Response> {
   const url = new URL(request.url);
-  const parts = url.pathname.split('/'); // /v1/name/items/:version/:itemName
-  const version = parts[3];
-  const itemName = parts[4];
+  const segments = url.pathname.replace(/^\/+|\/+$/g, "").split("/");
+  const version = segments[3];
+  const itemName = segments[4];
 
   if (!version || !itemName) {
     return new Response(JSON.stringify({ message: "Version and item name are required" }), {
@@ -11,8 +11,9 @@ export async function itemByName(request: Request): Promise<Response> {
     });
   }
 
+  const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/${encodeURIComponent(version)}/items.json`;
+
   try {
-    const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/items.json`;
     const response = await fetch(ghUrl);
 
     if (!response.ok) {
@@ -23,7 +24,9 @@ export async function itemByName(request: Request): Promise<Response> {
     }
 
     const minecraftItems = await response.json();
-    const item = minecraftItems.find((i: any) => i.name.toLowerCase() === itemName.toLowerCase());
+    const item = minecraftItems.find(
+      (i: any) => i.name.toLowerCase() === itemName.toLowerCase()
+    );
 
     if (!item) {
       return new Response(JSON.stringify({ message: "Item not found" }), {

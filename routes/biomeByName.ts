@@ -1,8 +1,8 @@
 export async function biomeByName(request: Request): Promise<Response> {
   const url = new URL(request.url);
-  const parts = url.pathname.split('/'); // /v1/name/biomes/:version/:biomeName
-  const version = parts[3];
-  const biomeName = parts[4];
+  const segments = url.pathname.replace(/^\/+|\/+$/g, "").split("/");
+  const version = segments[3];
+  const biomeName = segments[4]?.toLowerCase();
 
   if (!version || !biomeName) {
     return new Response(JSON.stringify({ message: "Version and biome name are required" }), {
@@ -11,8 +11,9 @@ export async function biomeByName(request: Request): Promise<Response> {
     });
   }
 
+  const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/${encodeURIComponent(version)}/biomes.json`;
+
   try {
-    const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/biomes.json`;
     const response = await fetch(ghUrl);
 
     if (!response.ok) {
@@ -23,10 +24,10 @@ export async function biomeByName(request: Request): Promise<Response> {
     }
 
     const minecraftBiomes = await response.json();
-    const biome = minecraftBiomes.find((b: any) => b.name === biomeName);
+    const biome = minecraftBiomes.find((b: any) => b.name.toLowerCase() === biomeName);
 
     if (!biome) {
-      return new Response(JSON.stringify({ message: "Biome name not found" }), {
+      return new Response(JSON.stringify({ message: "Biome not found" }), {
         status: 404,
         headers: { "Content-Type": "application/json" },
       });
@@ -38,7 +39,7 @@ export async function biomeByName(request: Request): Promise<Response> {
     });
   } catch (err) {
     return new Response(JSON.stringify({
-      message: "Server Error",
+      message: "Internal Server Error",
       error: err instanceof Error ? err.message : "Unknown error",
     }), {
       status: 500,

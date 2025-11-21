@@ -1,8 +1,9 @@
 export async function itemById(request: Request): Promise<Response> {
   const url = new URL(request.url);
-  const parts = url.pathname.split('/'); // /v1/id/items/:version/:itemId
-  const version = parts[3];
-  const itemId = parts[4];
+  const segments = url.pathname.replace(/^\/+|\/+$/g, "").split("/");
+
+  const version = segments[3];
+  const itemId = segments[4];
 
   if (!version || !itemId) {
     return new Response(JSON.stringify({ message: "Version and item ID are required" }), {
@@ -11,8 +12,9 @@ export async function itemById(request: Request): Promise<Response> {
     });
   }
 
+  const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/${encodeURIComponent(version)}/items.json`;
+
   try {
-    const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/items.json`;
     const response = await fetch(ghUrl);
 
     if (!response.ok) {

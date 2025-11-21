@@ -1,8 +1,8 @@
 export async function blockByName(request: Request): Promise<Response> {
   const url = new URL(request.url);
-  const parts = url.pathname.split('/'); // /v1/name/blocks/:version/:blockName
-  const version = parts[3];
-  const blockName = parts[4]?.toLowerCase();
+  const segments = url.pathname.replace(/^\/+|\/+$/g, "").split("/");
+  const version = segments[3];
+  const blockName = segments[4]?.toLowerCase();
 
   if (!version || !blockName) {
     return new Response(JSON.stringify({ message: "Version and block name are required" }), {
@@ -11,8 +11,9 @@ export async function blockByName(request: Request): Promise<Response> {
     });
   }
 
+  const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/${encodeURIComponent(version)}/blocks.json`;
+
   try {
-    const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/blocks.json`;
     const response = await fetch(ghUrl);
 
     if (!response.ok) {
@@ -36,6 +37,7 @@ export async function blockByName(request: Request): Promise<Response> {
       status: 200,
       headers: { "Content-Type": "application/json" },
     });
+
   } catch (err) {
     return new Response(JSON.stringify({
       message: "Internal Server Error",

@@ -1,8 +1,8 @@
 export async function biomeById(request: Request): Promise<Response> {
   const url = new URL(request.url);
-  const parts = url.pathname.split('/'); // /v1/id/biomes/:version/:biomeId
-  const version = parts[3];
-  const biomeIdStr = parts[4];
+  const segments = url.pathname.replace(/^\/+|\/+$/g, "").split("/");
+  const version = segments[3];
+  const biomeIdStr = segments[4];
 
   if (!version || !biomeIdStr) {
     return new Response(JSON.stringify({ message: "Version and biome ID are required" }), {
@@ -12,7 +12,6 @@ export async function biomeById(request: Request): Promise<Response> {
   }
 
   const biomeId = parseInt(biomeIdStr, 10);
-
   if (isNaN(biomeId)) {
     return new Response(JSON.stringify({ message: "Invalid biome ID" }), {
       status: 400,
@@ -20,8 +19,9 @@ export async function biomeById(request: Request): Promise<Response> {
     });
   }
 
+  const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/master/data/pc/${encodeURIComponent(version)}/biomes.json`;
+
   try {
-    const ghUrl = `https://raw.githubusercontent.com/PrismarineJS/minecraft-data/refs/heads/master/data/pc/${version}/biomes.json`;
     const response = await fetch(ghUrl);
 
     if (!response.ok) {
@@ -47,7 +47,7 @@ export async function biomeById(request: Request): Promise<Response> {
     });
   } catch (err) {
     return new Response(JSON.stringify({
-      message: "Server Error",
+      message: "Internal Server Error",
       error: err instanceof Error ? err.message : "Unknown error",
     }), {
       status: 500,
