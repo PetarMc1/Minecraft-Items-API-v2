@@ -9,6 +9,9 @@ import {
   itemById,
   effectByName,
   effectById,
+  search,
+  count,
+  map
 } from './routes';
 
 addEventListener('fetch', (event: FetchEvent) => {
@@ -20,47 +23,25 @@ export async function handleRequest(request: Request): Promise<Response> {
   const path = url.pathname;
 
   try {
-    // Versions info
-    if (path.startsWith('/v1/verInfo/')) {
-      return verInfo(request);
-    }
+    if (path.startsWith('/v1/verInfo/')) return verInfo(request);
 
-    // Show names
-    if (path.startsWith('/v1/showNames/')) {
-      return showNames(request);
-    }
+    if (path.startsWith('/v1/showNames/')) return showNames(request);
 
-    // Blocks
-    if (path.startsWith('/v1/name/blocks/')) {
-      return blockByName(request);
-    }
-    if (path.startsWith('/v1/id/blocks/')) {
-      return blockById(request);
-    }
+    if (path.startsWith('/v1/name/blocks/')) return blockByName(request);
+    if (path.startsWith('/v1/id/blocks/')) return blockById(request);
 
-    // Biomes
-    if (path.startsWith('/v1/name/biomes/')) {
-      return biomeByName(request);
-    }
-    if (path.startsWith('/v1/id/biomes/')) {
-      return biomeById(request);
-    }
+    if (path.startsWith('/v1/name/biomes/')) return biomeByName(request);
+    if (path.startsWith('/v1/id/biomes/')) return biomeById(request);
 
-    // Items
-    if (path.startsWith('/v1/name/items/')) {
-      return itemByName(request);
-    }
-    if (path.startsWith('/v1/id/items/')) {
-      return itemById(request);
-    }
+    if (path.startsWith('/v1/name/items/')) return itemByName(request);
+    if (path.startsWith('/v1/id/items/')) return itemById(request);
 
-    // Effects
-    if (path.startsWith('/v1/name/effects/')) {
-      return effectByName(request);
-    }
-    if (path.startsWith('/v1/id/effects/')) {
-      return effectById(request);
-    }
+    if (path.startsWith('/v1/name/effects/')) return effectByName(request);
+    if (path.startsWith('/v1/id/effects/')) return effectById(request);
+
+    if (path.startsWith('/v1/search/')) return search(request);
+    if (path.startsWith('/v1/count/')) return count(request);
+    if (path.startsWith('/v1/map/')) return map(request);
 
     return new Response('Not Found', { status: 404 });
   } catch (err) {

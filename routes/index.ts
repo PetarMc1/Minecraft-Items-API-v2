@@ -8,3 +8,6 @@ export { itemByName } from './itemByName';
 export { itemById } from './itemById';
 export { effectByName } from './effectByName';
 export { effectById } from './effectById';
+export { search } from './search';
+export { count } from './count';
+export { map } from './mapping';

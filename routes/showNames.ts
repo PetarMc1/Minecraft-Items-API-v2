@@ -1,6 +1,6 @@
 export async function showNames(request: Request): Promise<Response> {
   const url = new URL(request.url);
-  const parts = url.pathname.split('/'); // /v1/showNames/:category/:version
+  const parts = url.pathname.split('/');
   const category = parts[3];
   const version = parts[4];
 

@@ -1,7 +1,7 @@
 export async function verInfo(request: Request): Promise<Response> {
   const url = new URL(request.url);
   const parts = url.pathname.split('/');
-  const version = parts[3]; // /v1/verInfo/:version
+  const version = parts[3];
 
   if (!version) {
     return new Response(JSON.stringify({ message: "Version is required" }), {
