@@ -50,7 +50,7 @@ Then you will be prompted what to do.
 ## Usage
 https://mc-api.petarmc.com
 
-Begin your journey with the Minecraft Items API v2 by making HTTP requests to the endpoint. Explore the API [documentation](https://dev.mc-api.petarmc.com/) for comprehensive details on available endpoints, request parameters, and response formats.
+Begin your journey with the Minecraft Items API v2 by making HTTP requests to the endpoint. Explore the API [documentation](https://mc-api.petarmc.com/) for comprehensive details on available endpoints, request parameters, and response formats.
 
 # License
 This project is licensed under the [MIT](/LICENCE) License.
