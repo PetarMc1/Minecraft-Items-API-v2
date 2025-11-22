@@ -24,9 +24,6 @@ jobs:
       - name: Install dependencies  
         run: pnpm install --frozen-lockfile  
 
-      - name: Build (if needed)  
-        run: pnpm run build  
-
       - name: Deploy to Cloudflare Workers with Wrangler  
         uses: cloudflare/wrangler-action@v3  
         with:  
