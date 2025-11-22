@@ -1,13 +1,35 @@
+name: Deploy to Cloudflare Workers
+
+on:
+  push:
+    branches:
+      - master
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Deploy with Wrangler
-        uses: cloudflare/wrangler-action@v3
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'   # or the Node version you use
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4   # install pnpm via action :contentReference[oaicite:0]{index=0}
+        with:
+          version: 8   # or whatever pnpm version, or omit to use your package.json's packageManager field
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Deploy to Cloudflare Workers with Wrangler
+        uses: cloudflare/wrangler-action@v3.1.0
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: deploy
-          packageManager: pnpm
+          command: "deploy"
+          packageManager: "pnpm"   # tell the action to use pnpm :contentReference[oaicite:1]{index=1}
