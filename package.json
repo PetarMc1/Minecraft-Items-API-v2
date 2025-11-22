@@ -1,27 +1,22 @@
 {
-  "name": "minecraft-items-api-v2",
-  "version": "0.1.0",
-  "private": true,
+  "name": "test-mc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
+    "build": "tsc "
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.15.0",
+  "devDependencies": {
+    "@types/express": "^5.0.5",
+    "nodemon": "^3.1.11",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
   },
   "dependencies": {
-    "fs": "0.0.1-security",
-    "next": "15.1.4",
-    "path": "^0.12.7",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "swagger-ui-react": "^5.21.0"
-  },
-  "devDependencies": {
-    "@types/node": "^22.15.18",
-    "@types/react": "^18.3.21",
-    "@types/react-dom": "^18.3.7",
-    "@types/swagger-ui-react": "^4.19.0",
-    "typescript": "^5.8.3"
-  },
-  "packageManager": "pnpm@9.15.4+sha512.b2dc20e2fc72b3e18848459b37359a32064663e5627a51e4c74b2c29dd8e8e0491483c3abb40789cfd578bf362fb6ba8261b05f0387d76792ed6e23ea3b1b6a0"
+    "express": "^5.1.0"
+  }
 }

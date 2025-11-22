@@ -1,11 +1,6 @@
 # Minecraft Items API v2
 
 
-> [!WARNING]
-> Minecraft Items API v2 reached End of Life and is no longer supported!
-
-
-[![Discord](https://img.shields.io/discord/1217057211575042058?logo=Discord&label=Discord&color=blue)](https://discord.gg/8Ab2uuqSYE)
 ![GitHub Release](https://img.shields.io/github/v/release/PetarMc1/Minecraft-Items-API-v2?include_prereleases&logo=github&color=red)
 [![GitHub Issues](https://img.shields.io/github/issues/PetarMc1/Minecraft-Items-API-v2?logo=github)](https://github.com/PetarMc1/Minecraft-Items-API-v2/issues) 
 [![Pull Requests](https://img.shields.io/github/issues-pr/PetarMc1/Minecraft-Items-API-v2?logo=github)](https://github.com/PetarMc1/Minecraft-Items-API-v2/pulls)
@@ -27,38 +22,37 @@ Welcome to the Minecraft Items API v2! This API provides comprehensive access to
 git clone https://github.com/PetarMc1/Minecraft-Items-API-v2 -b master
 ```
 
-2. Install all required dependencies.
+2. Install all required dependencies and `wrangler`.
 
 ```
 pnpm install
+pnpm install -g wrangler
 ```
 
 3. Start the development server
 
 ```
-pnpm dev
+wrangler dev
 ```
 
 This will start a local development server. The majority of changes will
 be instantly reflected live without the need to restart the development server or reload the page in
 your browser.
 
-### Building
-
+## Deployment
+Ive designed this project to be deployable to Cloudflare Workers.
+To do it you need to run the following command:
 ```
-pnpm build
+wrangler deploy
 ```
-
-This command builds a production-ready deployment into the `build` directory. These files are ready
-to be hosted on any static content server.
-
+Then you will be prompted what to do.
 
 ## Usage
 https://mc-api.petarmc.com
 
-Begin your journey with the Minecraft Items API v2 by making HTTP requests to the endpoint. Explore the API [documentation](https://docs.petarmc.com/api/available-endpoints) for comprehensive details on available endpoints, request parameters, and response formats.
+Begin your journey with the Minecraft Items API v2 by making HTTP requests to the endpoint. Explore the API [documentation](https://dev.mc-api.petarmc.com/) for comprehensive details on available endpoints, request parameters, and response formats.
 
 # License
 This project is licensed under the [MIT](/LICENCE) License.
 
-Everything in the `Data` folder is copied from [PrismarineJS/minecraft-data](https://github.com/PrismarineJS/minecraft-data) and is not under my license. Check [PrismarineJS/minecraft-data/README.md](https://github.com/PrismarineJS/minecraft-data/blob/master/README.md)
+All of the data for blocks/items/biomes/effects/verisons etc. is from [PrismarineJS/minecraft-data](https://github.com/PrismarineJS/minecraft-data) and is not under my license. Check [PrismarineJS/minecraft-data/README.md](https://github.com/PrismarineJS/minecraft-data/blob/master/README.md)

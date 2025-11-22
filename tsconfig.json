@@ -1,21 +1,12 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": true,
-    "esModuleInterop": true,
-    "module": "esnext",
-    "moduleResolution": "bundler",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "jsx": "preserve",
-    "incremental": true,
-    "paths": {
-      "@/*": ["./src/*"]
-    }
-  },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+    "target": "ES2020",            // JS version output
+    "module": "CommonJS",          // Node uses CommonJS
+    "outDir": "dist",              // <-- compiled files go here
+    "rootDir": ".",                // base folder for TS source
+    "strict": true,                // enable type checking
+    "esModuleInterop": true,       // allow import fs/express style
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true
+  }
 }
