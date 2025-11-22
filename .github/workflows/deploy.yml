@@ -13,13 +13,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
+      - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '24'   # or the Node version you use
-
-      - name: Install pnpm
-        uses: pnpm/action-setup@v4   # install pnpm via action :contentReference[oaicite:0]{index=0}
+          node-version: '24'
 
       - name: Install dependencies
         run: pnpm install
@@ -29,5 +26,4 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: "deploy"
-          packageManager: "pnpm"   # tell the action to use pnpm :contentReference[oaicite:1]{index=1}
+          command: deploy
