@@ -1,0 +1,400 @@
+openapi: 3.1.0
+info:
+  title: Minecraft Data API
+  description: API to fetch Minecraft data for blocks, items, biomes, and effects across versions.
+  version: 2.0.0-beta.1
+servers:
+  - url: https://mc-api.petarmc.com
+paths:
+  /v1/verInfo/{version}:
+    get:
+      summary: Get version information
+      description: Retrieve information about the specified Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version (e.g., 1.21.6)
+      responses:
+        "200":
+          description: Version information retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Version not found
+        "500":
+          description: Server error
+
+  /v1/showNames/{version}/{category}:
+    get:
+      summary: Get all thenames in a category in a specific Minecraft version
+      description: Retrieve all names in the given category (blocks, biomes, items, effects) for the specified Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version (e.g., 1.21.6)
+        - in: path
+          name: category
+          schema:
+            type: string
+            enum: [blocks, biomes, items, effects]
+          required: true
+          description: Category to list names for
+      responses:
+        "200":
+          description: List of names for the specified category and version
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: string
+        "400":
+          description: Invalid category or missing parameters
+        "404":
+          description: Version not found
+        "500":
+          description: Server error
+
+  /v1/name/blocks/{version}/{blockName}:
+    get:
+      summary: Get detailed block info by name
+      description: Retrieve information about a specific block by its name for the specified Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version
+        - in: path
+          name: blockName
+          schema:
+            type: string
+          required: true
+          description: Block name (case-insensitive)
+      responses:
+        "200":
+          description: Block info retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Block or version not found
+        "500":
+          description: Server error
+
+  /v1/id/blocks/{version}/{blockId}:
+    get:
+      summary: Get detailed block info by ID
+      description: Retrieve information about a specific block by its ID for the specified Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version
+        - in: path
+          name: blockId
+          schema:
+            type: integer
+          required: true
+          description: Block numeric ID
+      responses:
+        "200":
+          description: Block info retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Block or version not found
+        "500":
+          description: Server error
+
+  /v1/name/biomes/{version}/{biomeName}:
+    get:
+      summary: Get detailed biome info by name
+      description: Retrieve information about a specific biome by its name for the specified Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version
+        - in: path
+          name: biomeName
+          schema:
+            type: string
+          required: true
+          description: Biome name
+      responses:
+        "200":
+          description: Biome info retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Biome or version not found
+        "500":
+          description: Server error
+
+  /v1/id/biomes/{version}/{biomeId}:
+    get:
+      summary: Get detailed biome info by ID
+      description: Retrieve information about a specific biome by its numeric ID for the specified Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version
+        - in: path
+          name: biomeId
+          schema:
+            type: integer
+          required: true
+          description: Biome numeric ID
+      responses:
+        "200":
+          description: Biome info retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Biome or version not found
+        "500":
+          description: Server error
+
+  /v1/name/items/{version}/{itemName}:
+    get:
+      summary: Get detailed item info by name
+      description: Retrieve information about a specific item by its name for the specified Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version
+        - in: path
+          name: itemName
+          schema:
+            type: string
+          required: true
+          description: Item name
+      responses:
+        "200":
+          description: Item info retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Item or version not found
+        "500":
+          description: Server error
+
+  /v1/id/items/{version}/{itemId}:
+    get:
+      summary: Get detailed item info by ID
+      description: Retrieve information about a specific item by its numeric ID for the specified Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version
+        - in: path
+          name: itemId
+          schema:
+            type: integer
+          required: true
+          description: Item numeric ID
+      responses:
+        "200":
+          description: Item info retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Item or version not found
+        "500":
+          description: Server error
+
+  /v1/name/effects/{version}/{effectName}:
+    get:
+      summary: Get detailed effect info by name
+      description: Retrieve information about a specific effect by its name for the specified Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version
+        - in: path
+          name: effectName
+          schema:
+            type: string
+          required: true
+          description: Effect name
+      responses:
+        "200":
+          description: Effect info retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Effect or version not found
+        "500":
+          description: Server error
+
+  /v1/id/effects/{version}/{effectId}:
+    get:
+      summary: Get detailed effect info by ID
+      description: Retrieve information about a specific effect by its numeric ID for the specified Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version
+        - in: path
+          name: effectId
+          schema:
+            type: integer
+          required: true
+          description: Effect numeric ID
+      responses:
+        "200":
+          description: Effect info retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+        "404":
+          description: Effect or version not found
+        "500":
+          description: Server error
+
+  /v1/search/{version}/{query}:
+    get:
+      summary: Search items, blocks, biomes, and effects
+      description: Search for entries in all categories by name for the specified Minecraft version. Returns all matches.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version
+        - in: path
+          name: query
+          schema:
+            type: string
+          required: true
+          description: Query string to search
+      responses:
+        "200":
+          description: List of search results
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+        "404":
+          description: Version not found
+        "500":
+          description: Server error
+
+  /v1/count/{version}:
+    get:
+      summary: Get counts of entries in all categories
+      description: Retrieve counts of blocks, biomes, items, and effects for the specified Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version
+      responses:
+        "200":
+          description: Counts per category
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  blocks:
+                    type: integer
+                  biomes:
+                    type: integer
+                  items:
+                    type: integer
+                  effects:
+                    type: integer
+        "404":
+          description: Version not found
+        "500":
+          description: Server error
+
+  /v1/map/{version}/{category}:
+    get:
+      summary: Get ID → Name and Name → ID map for a category
+      description: Retrieve a mapping of IDs to names and names to IDs for the specified category and Minecraft version.
+      parameters:
+        - in: path
+          name: version
+          schema:
+            type: string
+          required: true
+          description: Minecraft version
+        - in: path
+          name: category
+          schema:
+            type: string
+            enum: [blocks, biomes, items, effects]
+          required: true
+          description: Category to retrieve mapping for
+      responses:
+        "200":
+          description: Mapping of IDs to names and names to IDs
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  idMap:
+                    type: object
+                    additionalProperties:
+                      type: string
+                  nameMap:
+                    type: object
+                    additionalProperties:
+                      type: integer
+        "400":
+          description: Invalid version or category
+        "404":
+          description: Version not found
+        "500":
+          description: Server error
