@@ -19,7 +19,7 @@ jobs:
           node-version: '24'
 
       - name: Install dependencies
-        run: pnpm install
+        run: npm install
 
       - name: Deploy to Cloudflare Workers with Wrangler
         uses: cloudflare/wrangler-action@v3.1.0
