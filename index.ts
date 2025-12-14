@@ -23,7 +23,6 @@ export async function handleRequest(request: Request): Promise<Response> {
   const path = url.pathname;
 
   try {
-    // Serve Swagger UI at root
     if (path === '/' || path === '/docs') {
       const html = `
 <!DOCTYPE html>
@@ -40,7 +39,7 @@ export async function handleRequest(request: Request): Promise<Response> {
   <script>
     window.onload = () => {
       SwaggerUIBundle({
-        url: "https://cdn.458011.xyz/mc-api/openapi.yml",
+        url: "https://assets.petarmc.com/mc-api/openapi.yml",
         dom_id: "#swagger-ui",
         presets: [
           SwaggerUIBundle.presets.apis,
@@ -55,7 +54,6 @@ export async function handleRequest(request: Request): Promise<Response> {
       return new Response(html, { status: 200, headers: { "Content-Type": "text/html" } });
     }
 
-    // Your API endpoints
     if (path.startsWith('/v1/verInfo/')) return verInfo(request);
     if (path.startsWith('/v1/showNames/')) return showNames(request);
 
