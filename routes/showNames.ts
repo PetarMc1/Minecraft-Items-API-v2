@@ -1,8 +1,8 @@
 export async function showNames(request: Request): Promise<Response> {
   const url = new URL(request.url);
   const parts = url.pathname.split('/');
-  const category = parts[3];
-  const version = parts[4];
+  const category = parts[4];
+  const version = parts[3];
 
   if (!category || !version) {
     return new Response(JSON.stringify({ message: "Version and category are required" }), {
